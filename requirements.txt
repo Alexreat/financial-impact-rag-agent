@@ -1,0 +1,8 @@
+pandas==2.2.*
+numpy==1.26.*
+matplotlib==3.8.*
+sentence-transformers==2.6.*
+faiss-cpu==1.8.*
+chromadb==0.5.*
+pydantic==2.8.*
+openai==1.43.*    # OpenAI client
