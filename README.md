@@ -1,26 +1,35 @@
-# Finance-RAG: Why Did the Stock Move?
+# Financial Impact RAG Agent
 
-This project explains why a stock moved on a given day using **RAG (Retrieval-Augmented Generation)**.
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-Orchestration-orange?style=for-the-badge)
+![ChromaDB](https://img.shields.io/badge/Vector_DB-Chroma-green?style=for-the-badge)
 
-## What it does 
-1) Detects “event days” from `prices.csv` (big up/down moves).
-2) Cleans news headlines into `news_clean.csv`.
-3) Builds embeddings and a Chroma vector index.
-4) Retrieves top-k headlines near the target date (±N days).
-5) Calls the OpenAI model to produce a **strict JSON** answer with citations.
+An autonomous AI agent designed to answer the question: **"Why did the market move?"**
 
-## How to run 
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+This project correlates quantitative stock data with qualitative news sentiment using **Retrieval-Augmented Generation (RAG)**. It ingests financial news, creates vector embeddings, and allows users to query the reasoning behind specific volatility events.
 
-### 0) Prereqs
-- Python 3.11
-- An OpenAI API key
+---
 
-### 1) Setup a virtual environment and install packages
+##  Architecture (Modular Design)
+
+The project is structured to separate experimental analysis from production logic:
+
 ```bash
-cd finance-rag-why-move
-python3.11 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+├── src/                    # 🧠 Core Logic Modules
+│   ├── embedder.py         # Handles vector embedding generation
+│   ├── retriever.py        # Semantic search logic (ChromaDB)
+│   ├── rag_chain.py        # The LLM inference pipeline
+│   └── metrics.py          # Volatility calculation utilities
+├── notebooks/              # 🔬 Experiments & Analysis
+│   ├── LangGraph_Agent.ipynb # 🤖 Agentic workflow for reasoning
+│   ├── RAG.ipynb           # Prototyping the retrieval pipeline
+│   ├── Events_volatility.ipynb # Statistical correlation of news vs price
+│   └── News_handling.ipynb # Data cleaning and preprocessing
+└── data/                   # Dataset storage
+
+Key Capabilities
+Agentic AI: Uses LangGraph to create decision-making agents that don't just retrieve data, but reason about it.
+
+Semantic Search: Uses vector embeddings to find news articles conceptually related to market queries (not just keyword matching).
+
+Volatility Analysis: Correlates high-impact news events with significant price changes in the prices.csv dataset.
