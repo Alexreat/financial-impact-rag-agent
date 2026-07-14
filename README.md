@@ -15,13 +15,13 @@ This project correlates quantitative stock data with qualitative news sentiment 
 The project is structured to separate experimental analysis from production logic:
 
 ```bash
-├── src/                    # 🧠 Core Logic Modules
+├── src/                    #  Core Logic Modules
 │   ├── embedder.py         # Handles vector embedding generation
 │   ├── retriever.py        # Semantic search logic (ChromaDB)
 │   ├── rag_chain.py        # The LLM inference pipeline
 │   └── metrics.py          # Volatility calculation utilities
-├── notebooks/              # 🔬 Experiments & Analysis
-│   ├── LangGraph_Agent.ipynb # 🤖 Agentic workflow for reasoning
+├── notebooks/              #  Experiments & Analysis
+│   ├── LangGraph_Agent.ipynb #  Agentic workflow for reasoning
 │   ├── RAG.ipynb           # Prototyping the retrieval pipeline
 │   ├── Events_volatility.ipynb # Statistical correlation of news vs price
 │   └── News_handling.ipynb # Data cleaning and preprocessing
